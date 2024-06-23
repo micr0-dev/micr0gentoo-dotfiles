@@ -1,0 +1,68 @@
+# click on the desktop to get menus
+OnDesktop Mouse1 :HideMenus
+OnDesktop Mouse3 :RootMenu
+
+# scroll on the toolbar to change current window
+OnToolbar Mouse4 :PrevWindow {static groups} (iconhidden=no)
+OnToolbar Mouse5 :NextWindow {static groups} (iconhidden=no)
+
+# win + left/right click to move/resize a window
+OnWindow Mod4 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
+OnWindowBorder Move1 :StartMoving
+
+OnWindow Mod4 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing NearestCorner}
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright
+
+# win + middle click to lower the window
+OnWindow Mod4 Mouse2 :Lower
+
+# control-click a window's titlebar and drag to attach windows
+OnTitlebar Control Mouse1 :StartTabbing
+
+# double click on the titlebar to shade
+OnTitlebar Double Mouse1 :Shade
+
+# left click on the titlebar to move the window
+OnTitlebar Mouse1 :MacroCmd {Raise} {Focus} {ActivateTab}
+OnTitlebar Move1  :StartMoving
+
+# middle click on the titlebar to lower
+OnTitlebar Mouse2 :Lower
+
+# right click on the titlebar for a menu of options
+OnTitlebar Mouse3 :WindowMenu
+
+# alt-tab
+Mod1 Tab :NextWindow {groups} (workspace=[current])
+Mod1 Shift Tab :PrevWindow {groups} (workspace=[current])
+
+# open a terminal
+Mod1 F1 :Exec kitty
+
+# volume control
+XF86AudioRaiseVolume :Exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+XF86AudioLowerVolume :Exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+XF86AudioMute :Exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# media playback
+XF86AudioPlay :Exec playerctl play-pause
+XF86AudioPause :Exec playerctl pause
+XF86AudioStop :Exec playerctl stop
+XF86AudioPrev :Exec playerctl previous
+XF86AudioNext :Exec playerctl next
+
+
+# current window commands
+Mod4 C :Close
+Mod1 F4 :Kill
+Mod4 I :Fullscreen
+
+Print :Exec flameshot gui -c
+
+
+# exit fluxbox
+Control Mod1 Delete :Exit
+
+
+
