@@ -2,3 +2,8 @@
   [Position]	(WINCENTER)	{0 0}
   [Layer]	{2}
 [end]
+[app] (name="steam_app" class="steam_app_*")
+  [Fullscreen] {yes}
+  [Head] {0}
+[end]
+

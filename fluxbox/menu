@@ -18,8 +18,12 @@
 [encoding] {UTF-8}
       [exec] (kitty) {kitty} 
       [exec] (firefox) {firefox-bin}  
+      [exec] (steam) {/usr/bin/steam}
 [submenu] (System Tools)
       [exec]   (btop) {kitty -e btop} 
+[end]
+[submenu] (Accessories)
+      [exec] (Screenshot) {flameshot gui}
 [end]
 [submenu] (Fluxbox menu)
       [config] (Configure) 

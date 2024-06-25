@@ -18,9 +18,24 @@ xmodmap "/home/micr0/.Xmodmap"
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 
+#bugfix for flameshot not capturing to clipboard
+flameshot & disown
+
+#Set Wallpaper
+hsetroot -root -center ~/wallpaper.png
+
+#Set colemak keyboard layout
 setxkbmap us -variant colemak
+
+#Setup monitors
+~/monitor_setup.sh
+
+# Start picom
+picom --config ~/.config/picom/picom.conf &
+
+# Start Polybar
+~/.config/polybar/launch.sh &
 
 exec fluxbox
 # or if you want to keep a log:
 # exec fluxbox -log "/home/micr0/.fluxbox/log"
-
